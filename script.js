@@ -20,6 +20,12 @@ pizzaJson.map((pizza, index)=> {
     pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${pizza.price.toFixed(2)}`
     // Neste comando acima, fiz a inserção do preçp do produto
 
+    pizzaItem.querySelector('a').addEventListener('click', (e) => {
+        e.preventDefault();
+    })
+    // Neste comando acima, fiz com que o evento de clicar na tag HTML "a", não fosse executada.
+
+    
 
 
     selecionarItem('.pizza-area').append(pizzaItem)

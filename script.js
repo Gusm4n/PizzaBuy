@@ -25,7 +25,11 @@ pizzaJson.map((pizza, index)=> {
     })
     // Neste comando acima, fiz com que o evento de clicar na tag HTML "a", não fosse executada.
 
-    
+    selecionarItem('.pizzaWindowArea').style.opacity = 0.5
+    selecionarItem('.pizzaWindowArea').style.display = 'flex'
+    setTimeout(()=>{
+        selecionarItem('.pizzaWindowArea').style.opacity = 1
+    }, 200)
 
 
     selecionarItem('.pizza-area').append(pizzaItem)

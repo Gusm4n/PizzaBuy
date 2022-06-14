@@ -4,6 +4,8 @@ const selecionarItem = (el)=>document.querySelector(el);
 const selecionarTodosItens = (el)=>document.querySelector(el);
 // A função acima ativa a funcionalidade do DOM "querySelectorAll()"
 
+const modalQt = 1
+
 pizzaJson.map((pizza, index)=> {
     let pizzaItem = selecionarItem('.models .pizza-item').cloneNode(true)
 
@@ -33,6 +35,18 @@ pizzaJson.map((pizza, index)=> {
     selecionarItem('.pizzaBig img').src = pizzaJson[key].img
     selecionarItem('.pizzaInfo h1').innerHTML = pizzaJson[key].name
     selecionarItem('.pizzaInfo-desc').innerHTML = pizzaJson[key].description
+    selecionarItem('.pizzaInfo-actualPrice').innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`
+
+    selecionarItem('.pizzaInfo--size.selected').classList.remove('selected')
+
+    selecionarTodosItens('pizzaInfo--size').forEach((size, sizeIndex)=>{
+        if(sizeIndex == 2){
+            size.classList.add('selected')
+        }
+        size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex]
+    })
+
+    selecionarItem('.pizzaInfo--qt').innerHTML = modalQt
 
     })
     // Neste comando acima, fiz com que o evento de clicar na tag HTML "a", não fosse executada.
